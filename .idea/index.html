@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> // angir visningsinnstillingene for enheten
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kjøp av kinobiletter</title>
 </head>
 <body>
@@ -18,7 +18,21 @@
         </select>
 
         <label for="kvantitet">Kvantitet (Hvor mange biletter skal du ha?)</label>
-        <input type="nummer" id="kvantitet" name="quantity" min="1" required>
+        <input type="number" id="kvantitet" name="quantity" min="1" required>
+
+        <label for="Fornavn">Fornavn:</label>
+        <input type="text" id="Fornavn" name="Fornavn" required>
+
+        <label for="Etternavn">Fornavn:</label>
+        <input type="text" id="Etternavn" name="Etternavn" required>
+
+        <label for="Telefonnummer">Tlf-nummer:</label>
+        <input type="tel" id="Telefonnummer" name="Telefonnummer" pattern="[0-9]{8}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="Email" name="Email" name="email" required>
+
+        <button type="submit" id="Sendinn-knapp">Kjøp billett</button>
 
     </form>
 </div>
