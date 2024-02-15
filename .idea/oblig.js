@@ -20,5 +20,3 @@ function validerSkjema(kino){
                 email: email
             };
             bilettArray.push(bilett);
-
-        }
