@@ -10,6 +10,10 @@ function leggTilBiletter(kino) { // for å legge til biletter
     let telefonnummer = document.getElementById('film').value;
     let email = document.getElementById('film').value;
 
+    if(!validerFilm(film)|| !validerKvantitet(kvantitet)||validerNavn(fornavn)||validerEtternvan(etternavn
+    ||validerTlfNummer(telefonnummer)||validerEmail(email))){
+        return "Det du satte inn ble ikke godkjent";
+    }
 
     if (film && kvantitet && fornavn && etternavn && telefonnummer && email) { //if-setning som passer på at alle felt er fylt ut
         //når flere biletter blir bestilt
@@ -31,8 +35,21 @@ function leggTilBiletter(kino) { // for å legge til biletter
         alert("Du må fylle ut alle felter :)"); //feilmeldingen hvis ikke alle felt er fylt ut
     }
 }
-function visBiletter(){
-    let biletter=document.getElementById('biletter');
-    biletter.innerHTML=''; // tømmer skjemat, før nye bietter blir lagt til
-}
+    function visBiletter() {
+        let biletter = document.getElementById('biletter');
+        biletter.innerHTML = ''; // tømmer skjemat, før nye bietter blir lagt til
+
+        let ut = "<ul";
+        for (let i = 0; i < bilettArray.length; i++) ;
+        let billett = bilettArray[i];
+        ut += "<li>" + billett.film + " , " + billett.count + " , " + billett.fornavn + " , " + billett.etternavn + " , " +
+            billett.telefonnummer + " , " + billett.email + " </li>";
+    }
+    function slettBillettene(){
+    bilettArray=[];
+    visBiletter();
+    }
+    if(!validerFilm(film))
+
+
 
