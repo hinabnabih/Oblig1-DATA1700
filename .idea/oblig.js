@@ -31,4 +31,8 @@ function leggTilBiletter(kino) { // for å legge til biletter
         alert("Du må fylle ut alle felter :)"); //feilmeldingen hvis ikke alle felt er fylt ut
     }
 }
+function visBiletter(){
+    let biletter=document.getElementById('biletter');
+    biletter.innerHTML=''; // tømmer skjemat, før nye bietter blir lagt til
+}
 
