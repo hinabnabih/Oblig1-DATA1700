@@ -24,4 +24,11 @@ function leggTilBiletter(kino) { // for å legge til biletter
         //legger til de nye bilettene i arrayet
         bilettArray.push(bilett);
         fordelBiletter();
+        document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
+        visBiletter();
+        aler("Billeten er regisrert! Takk for bestillingen :)")
+    } else {
+        alert("Du må fylle ut alle felter :)"); //feilmeldingen hvis ikke alle felt er fylt ut
+    }
+}
 
