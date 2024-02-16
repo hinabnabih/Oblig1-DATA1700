@@ -1,6 +1,7 @@
 let bilettArray=[]; //Oppretter et array
-function leggTilBiletter(kino) { // for å legge til biletter
-    kino.preventDefault();
+
+function leggTilBiletter(event) { // for å legge til biletter
+    event.preventDefault();
 
     //henter verdiene
     let film = document.getElementById('film').value;
@@ -10,9 +11,11 @@ function leggTilBiletter(kino) { // for å legge til biletter
     let telefonnummer = document.getElementById('film').value;
     let email = document.getElementById('film').value;
 
-    if (!validerFilm(film) || !validerKvantitet(kvantitet) || validerNavn(fornavn) || validerEtternvan(etternavn
+    //Input for valideringene
+    if (!validerFilm(film) || !validerAntall(kvantitet) || validerNavn(fornavn) || validerEtternvan(etternavn
         || validerTlfNummer(telefonnummer) || validerEmail(email))) {
-        return "Det du satte inn ble ikke godkjent";
+         alert ("Det du satte inn ble ikke godkjent");
+         return;
     }
 
     let billett = {
@@ -30,16 +33,13 @@ function leggTilBiletter(kino) { // for å legge til biletter
     visBiletter();
 
     document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
-
-    if(window.confirm("Biletten er registrert! Takk for bestillingen :)")){ //bekreftelsesmelding på kjøp
-    }
 }
     function visBiletter() {
-        let bilettListe = document.getElementById('biletter');
+        let bilettListe = document.getElementById('Bilettliste');
         bilettListe.innerHTML = ''; // tømmer skjemat, før nye bietter blir lagt ti
-        biletter.forEach(billett => {
-            bilettListe.innerHTML += "<li>Film: " + billett.film + " Antall: " + billett.kvantitet + " Fornavn: " + billett.fornavn + " Etternavn:  " + billett.etternavn + " Tlf-nummer: " +
-                billett.telefonnummer + " Email: " + billett.email + " </li>";
+        bilettArray.forEach(billett => {
+            bilettListe.innerHTML += "<li>"+ billett.film + billett.kvantitet + billett.fornavn + billett.etternavn  +
+                billett.telefonnummer + billett.email + " </li>";
         });
     }
 
@@ -78,7 +78,7 @@ function validerTlfNummer(telefonnummer) {
     return true;
 }
 function validerEmail(email) {
-    if (!emai) {
+    if (!email) {
         alert("Vennligst fyll ut email-feltet:)")
         return false;
     }

@@ -5,16 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kjøp av kinobiletter</title>
     <style>
-        body{
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: pink;
         }
-        .billet{
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10pc;
-            flex:1
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
+
+        form {
+            margin-bottom: 20px;
+            background-color: pink;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid pink;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: auto;
+            background-color: deeppink;
+            color: black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        #ticketsList {
+            background-color: pink;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        #ticketsList h2{
+            margin-top: 0;
+        }
+
 </style>
 </head>
 
@@ -23,27 +70,26 @@
     <form id="Bookingskjema">
         <label for="film">Velg film:</label>
         <select id="film" name="film" required>
-            <option value="Film1">Cinderella</option>
-            <option value="Film2">Chihiro og heksene</option>
-            <option value="Film3">Alle vi barna i bakkebygrenda</option>
-            <option value="Film4">Tom and Jerry</option>
+            <option value="">Velg film</option>
+            <option value=" Rapunzel">Chihiro og heksene</option>
+            <option value="Alle vi barna">Alle vi barna i bakkebygrenda</option>
+            <option value="Tom and jerry">Tom and Jerry</option>
         </select>
-        <br>
 
         <label for="kvantitet">Antall</label>
-        <input type="number" id="kvantitet" name="quantity" min="1" required> <br>
+        <input type="number" id="kvantitet" name="quantity" min="1" required>
 
         <label for="fornavn">Fornavn:</label>
-        <input type="text" id="fornavn" name="fornavn" required> <br>
+        <input type="text" id="fornavn" name="fornavn" required>
 
         <label for="etternavn">Etternavn:</label>
-        <input type="text" id="etternavn" name="etternavn" required> <br>
+        <input type="text" id="etternavn" name="etternavn" required>
 
         <label for="telefonnummer">Tlf-nummer:</label>
-        <input type="tel" id="telefonnummer" name="telefonnummer" pattern="[0-9]{8}" required> <br>
+        <input type="tel" id="telefonnummer" name="telefonnummer" pattern="[0-9]{8}" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" name="email" required> <br>
+        <input type="email" id="email" name="email" name="email" required>
 
         <button type="submit" id="Sendinn-knapp">Kjøp billett</button>
     </form>
@@ -56,5 +102,9 @@
 </div>
 
 <script src="oblig.js"></script>
+<script>
+    if(confirm("Biletten er registrert! Takk for bestillingen :)")) {
+    }
+</script>
 </body>
 </html>
