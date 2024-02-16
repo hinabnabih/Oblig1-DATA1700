@@ -15,7 +15,7 @@ function leggTilBiletter(kino) { // for å legge til biletter
         return "Det du satte inn ble ikke godkjent";
     }
 
-    let bilett = {
+    let billett = {
         film: film,
         kvantitet: kvantitet,
         fornavn: fornavn,
@@ -25,26 +25,29 @@ function leggTilBiletter(kino) { // for å legge til biletter
     };
 
     //legger til de nye bilettene i arrayet
-    bilettArray.push(bilett);
+    bilettArray.push(billett);
 
     visBiletter();
 
     document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
+
+    if(window.confirm("Biletten er registrert! Takk for bestillingen :)")){ //bekreftelsesmelding på kjøp
+    }
 }
     function visBiletter() {
-        let biletter = document.getElementById('biletter');
-        biletter.innerHTML = ''; // tømmer skjemat, før nye bietter blir lagt til
-
-        let ut = "<ul";
-        for (let i = 0; i < bilettArray.length; i++) ;
-        let billett = bilettArray[i];
-        ut += "<li>" + billett.film + " , " + billett.count + " , " + billett.fornavn + " , " + billett.etternavn + " , " +
-            billett.telefonnummer + " , " + billett.email + " </li>";
+        let bilettListe = document.getElementById('biletter');
+        bilettListe.innerHTML = ''; // tømmer skjemat, før nye bietter blir lagt ti
+        biletter.forEach(billett => {
+            bilettListe.innerHTML += "<li>Film: " + billett.film + " Antall: " + billett.kvantitet + " Fornavn: " + billett.fornavn + " Etternavn:  " + billett.etternavn + " Tlf-nummer: " +
+                billett.telefonnummer + " Email: " + billett.email + " </li>";
+        });
     }
 
-    function slettBillettene(){
-    bilettArray=[];
-    visBiletter();
+
+//lager en inputvalidering for hvert felt:
+    function slettBillettene() {
+        bilettArray = [];
+        visBiletter();
     }
     function validerFilm(film) {
         if (!film) {
@@ -81,6 +84,7 @@ function validerEmail(email) {
     }
     return true;
 }
+
 
 
 
