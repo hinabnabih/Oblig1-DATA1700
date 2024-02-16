@@ -10,30 +10,26 @@ function leggTilBiletter(kino) { // for å legge til biletter
     let telefonnummer = document.getElementById('film').value;
     let email = document.getElementById('film').value;
 
-    if(!validerFilm(film)|| !validerKvantitet(kvantitet)||validerNavn(fornavn)||validerEtternvan(etternavn
-    ||validerTlfNummer(telefonnummer)||validerEmail(email))){
+    if (!validerFilm(film) || !validerKvantitet(kvantitet) || validerNavn(fornavn) || validerEtternvan(etternavn
+        || validerTlfNummer(telefonnummer) || validerEmail(email))) {
         return "Det du satte inn ble ikke godkjent";
     }
 
-    if (film && kvantitet && fornavn && etternavn && telefonnummer && email) { //if-setning som passer på at alle felt er fylt ut
-        //når flere biletter blir bestilt
-        let bilett = {
-            film: film,
-            kvantitet: kvantitet,
-            fornavn: fornavn,
-            etternavn: etternavn,
-            telefonnummer: telefonnummer,
-            email: email
-        };
-        //legger til de nye bilettene i arrayet
-        bilettArray.push(bilett);
-        fordelBiletter();
-        document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
-        visBiletter();
-        aler("Billeten er regisrert! Takk for bestillingen :)")
-    } else {
-        alert("Du må fylle ut alle felter :)"); //feilmeldingen hvis ikke alle felt er fylt ut
-    }
+    let bilett = {
+        film: film,
+        kvantitet: kvantitet,
+        fornavn: fornavn,
+        etternavn: etternavn,
+        telefonnummer: telefonnummer,
+        email: email
+    };
+
+    //legger til de nye bilettene i arrayet
+    bilettArray.push(bilett);
+
+    visBiletter();
+
+    document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
 }
     function visBiletter() {
         let biletter = document.getElementById('biletter');
@@ -45,6 +41,7 @@ function leggTilBiletter(kino) { // for å legge til biletter
         ut += "<li>" + billett.film + " , " + billett.count + " , " + billett.fornavn + " , " + billett.etternavn + " , " +
             billett.telefonnummer + " , " + billett.email + " </li>";
     }
+
     function slettBillettene(){
     bilettArray=[];
     visBiletter();
