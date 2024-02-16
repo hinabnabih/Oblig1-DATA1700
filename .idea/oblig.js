@@ -49,7 +49,43 @@ function leggTilBiletter(kino) { // for å legge til biletter
     bilettArray=[];
     visBiletter();
     }
-    if(!validerFilm(film))
+    function validerFilm(film) {
+        if (!film) {
+            alert("Vennligst full ut filmfeltet :)")
+            return false
+        }
+        return true;
+    }
+    function validerAntall(kvantitet){
+    if (!kvantitet || kvantitet<=0){
+        alert("Sett inn et ordentlig tall (postivt)")
+        return false
+    }
+    return true;
+}
+function validerNavn(fornavn) {
+    if (!fornavn) {
+        alert("Vennligst fyll ut navnfeltet :)")
+        return false;
+    }
+    return true;
+}
+function validerTlfNummer(telefonnummer) {
+    if (!telefonnummer) {
+        alert("Vennligst fyll ut tlf-feltet :)")
+        return false;
+    }
+    return true;
+}
+function validerEmail(email) {
+    if (!emai) {
+        alert("Vennligst fyll ut email-feltet:)")
+        return false;
+    }
+    return true;
+}
+
+
 
 
 
