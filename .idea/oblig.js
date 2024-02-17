@@ -1,21 +1,46 @@
 let bilettArray=[]; //Oppretter et array
 
+//Validering av telefonnummer og email
+let tRegex = /^\d{8}$/; //tlf-nummeret må inkl. 8 sifre
+let eRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+//hentes fra html
+let bSkjema = document.getElementById("Bookingskjema");
+let bListe = document.getElementById("Biletter");
+let bekreftelse = document.getElementById("bekreftelse");
+let kjøpBilett = document.getElementById("kjøpBilett");
+let slettBiletter = document.getElementById("slettBiletter");
+
+//validering av hele skjema
+function validerSkjema() {
+
+    if (film === "" || kvantitet === "" || fornavn === "" || etternavn === "" || telefonnummer === "" || email === "") {
+        alert("Vennligst fyll ut alle feltene før du sender skjemaet.");
+        return false; // skjemaet sendes ikke hvis det er tomme felt
+    }
+
+    return true; // skjemaet hvis alle felt er fylt ut
+}
 function leggTilBiletter(event) { // for å legge til biletter
     event.preventDefault();
 
     //henter verdiene
-    let film = document.getElementById('film').value;
-    let kvantitet = document.getElementById('film').value;
-    let fornavn = document.getElementById('film').value;
-    let etternavn = document.getElementById('film').value;
-    let telefonnummer = document.getElementById('film').value;
-    let email = document.getElementById('film').value;
+    let film = document.getElementById("film").value;
+    let kvantitet = document.getElementById("kvantitet").value;
+    let fornavn = document.getElementById("fornavn").value;
+    let etternavn = document.getElementById("etternavn").value;
+    let telefonnummer = document.getElementById("telefonnummer").value;
+    let email = document.getElementById("email").value;
 
-    //Input for valideringene
-    if (!validerFilm(film) || !validerAntall(kvantitet) || validerNavn(fornavn) || validerEtternvan(etternavn
-        || validerTlfNummer(telefonnummer) || validerEmail(email))) {
-         alert ("Det du satte inn ble ikke godkjent");
-         return;
+    //validering og meldinger for validering
+    if (!tRegex.test(telefonnummer)){
+        alert("Ugyldig tlf-nummer, prøv igjen :)");
+        return;
+    }
+
+    if (!eRegex.test(email)){
+        alert("Ugyldig email, prøv igjen :)");
+        return;
     }
 
     let billett = {
@@ -30,61 +55,31 @@ function leggTilBiletter(event) { // for å legge til biletter
     //legger til de nye bilettene i arrayet
     bilettArray.push(billett);
 
+    visBiletter(); //biletter vises
+
+    bSkjema.reset(); // når trykker send, tilbakestilles skjema
+}
+//for å vise bilettene
+function visBiletter() {
+    let ut = "<ul>";
+    for (let i = 0; i < bilettArray.length; i++) {
+        let bilettListe= bilettArray[i];
+        ut += "<li> Film: "+ bilettListe.film + ", Antall biletter : " + bilettListe.kvantitet +  ", Email: " + bilettListe.email + "</li>";
+    }
+    ut += "</ul>";
+    bListe.innerHTML = ut;
+}
+//for å kunne slette alle bilettene
+function slettBillettene() {
+    bilettArray = [];
     visBiletter();
-
-    document.getElementById('booking').reset(); //når man trykker slett, fjernes bilettene
 }
-    function visBiletter() {
-        let bilettListe = document.getElementById('Bilettliste');
-        bilettListe.innerHTML = ''; // tømmer skjemat, før nye bietter blir lagt ti
-        bilettArray.forEach(billett => {
-            bilettListe.innerHTML += "<li>"+ billett.film + billett.kvantitet + billett.fornavn + billett.etternavn  +
-                billett.telefonnummer + billett.email + " </li>";
-        });
-    }
-
-
-//lager en inputvalidering for hvert felt:
-    function slettBillettene() {
-        bilettArray = [];
-        visBiletter();
-    }
-    function validerFilm(film) {
-        if (!film) {
-            alert("Vennligst full ut filmfeltet :)")
-            return false
-        }
-        return true;
-    }
-    function validerAntall(kvantitet){
-    if (!kvantitet || kvantitet<=0){
-        alert("Sett inn et ordentlig tall (postivt)")
-        return false
-    }
-    return true;
-}
-function validerNavn(fornavn) {
-    if (!fornavn) {
-        alert("Vennligst fyll ut navnfeltet :)")
-        return false;
-    }
-    return true;
-}
-function validerTlfNummer(telefonnummer) {
-    if (!telefonnummer) {
-        alert("Vennligst fyll ut tlf-feltet :)")
-        return false;
-    }
-    return true;
-}
-function validerEmail(email) {
-    if (!email) {
-        alert("Vennligst fyll ut email-feltet:)")
-        return false;
-    }
-    return true;
-}
-
+//for å håndtere skjemasending, kjøpe med klikk og slette med klikk
+bSkjema.addEventListener("submit", leggTilBiletter);
+kjøpBilett.addEventListener("click", function () {
+    leggTilBiletter();
+});
+slettBiletter.addEventListener("click", slettBillettene);
 
 
 

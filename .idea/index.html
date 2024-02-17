@@ -1,110 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kjøp av kinobiletter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: pink;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        form {
-            margin-bottom: 20px;
-            background-color: pink;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input,
-        select,
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid pink;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            width: auto;
-            background-color: deeppink;
-            color: black;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: pink;
-        }
-
-        #ticketsList {
-            background-color: pink;
-            padding: 20px;
-            border-radius: 8px;
-            width: 100%;
-        }
-        #ticketsList h2{
-            margin-top: 0;
-        }
+    <title>Kjøp av kinobiletter</title> <! tittelen i nettlser>
+</head>
+<style>
 
 </style>
-</head>
-
+<body>
 <div class="container">
-    <h1> Kjøp av vinterens Kinobiletter! </h1>
-    <form id="Bookingskjema">
-        <label for="film">Velg film:</label>
+    <h1> Kjøp av vinterens Kinobiletter! </h1> <! overskrift >
+    <form id="Bookingskjema"> <! skjema for å kjøpe biletter>
+        <label for="film">Velg film:</label> <! velge film med rullegardin-meny>
         <select id="film" name="film" required>
-            <option value="">Velg film</option>
-            <option value=" Rapunzel">Chihiro og heksene</option>
-            <option value="Alle vi barna">Alle vi barna i bakkebygrenda</option>
-            <option value="Tom and jerry">Tom and Jerry</option>
-        </select>
+            <option value="">Velg film :) </option>
+            <option value="Barbie">Barbie</option>
+            <option value="Anyone but you">Anyone but you</option>
+            <option value="Night swim">Night swim</option>
+            <option value="Mean girls 2">Mean girls 2</option>
+            <option value="Inside out 2">Inside out 2</option>
+            <option value="Kungfu panda 4">Kungfu panda 4</option>
+        </select> <br>
 
+        <! de ulike boksene>
         <label for="kvantitet">Antall</label>
-        <input type="number" id="kvantitet" name="quantity" min="1" required>
+        <input type="number" id="kvantitet" name="kvantitet" min="1" required> <br>
 
         <label for="fornavn">Fornavn:</label>
-        <input type="text" id="fornavn" name="fornavn" required>
+        <input type="text" id="fornavn" placeholder="Skriv inn ditt fornavn" required> <br>
 
         <label for="etternavn">Etternavn:</label>
-        <input type="text" id="etternavn" name="etternavn" required>
+        <input type="text" id="etternavn" placeholder="Skriv inn ditt etternavn" required> <br>
 
         <label for="telefonnummer">Tlf-nummer:</label>
-        <input type="tel" id="telefonnummer" name="telefonnummer" pattern="[0-9]{8}" required>
+        <input type="tel" id="telefonnummer" placeholder="Skriv inn et gyldig telefonnummer" pattern="[0-9]{8}" required> <br>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" name="email" required>
-
-        <button type="submit" id="Sendinn-knapp">Kjøp billett</button>
+        <input type="email" id="email" placeholder="Skriv inn din email adresse" required> <br>
+        <button type="submit" id="kjøpBilett">Kjøp bilett</button> <! knapp for å kjøpe billetene>
     </form>
 
+    <! oversikt over kjøpte biletter>
+
     <div id="BilettListe">
-        <h2>Mine biletter</h2>
+        <h2>Mine bilettter</h2>
         <ul id="Biletter"></ul>
-        <button onclick="SlettAlleBiletter()">Slett mine biletter</button>
+        <button type="button" id="slettBiletter">Slett mine biletter</button>
     </div>
+    <div id="bekreftelse"></div>
 </div>
 
-<script src="oblig.js"></script>
-<script>
-    if(confirm("Biletten er registrert! Takk for bestillingen :)")) {
-    }
-</script>
+<script src="oblig.js"></script> <! js-filen>
 </body>
 </html>
