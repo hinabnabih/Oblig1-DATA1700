@@ -1,6 +1,6 @@
 Kinobilettbestilling
 Dette er en enkel kinobilettbestilling som lar deg velge en film, antall biletter.
-Du må fylle ut personlig info for å kunne fullføre bestillingen.
+Du må også fylle ut personlig info for å kunne fullføre bestillingen.
 
 Fremgangsmåte:
 -Du velger film ved rullegardin-meny
