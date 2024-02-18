@@ -10,7 +10,8 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: pink;
+        background-color: black;
+        color: white;
     }
     .container {
         display: flex;
@@ -54,7 +55,7 @@
     }
 
     #Biletter {
-        background-color: pink;
+        background-color: black;
         padding: 20px;
         border-radius: 8px;
         width: 100%;
@@ -81,7 +82,7 @@
         </select> <br>
 
         <! de ulike boksene>
-        <label for="kvantitet">Antall</label>
+        <label for="kvantitet">Antall biletter</label>
         <input type="number" id="kvantitet" name="kvantitet" min="1" required> <br>
 
         <label for="fornavn">Fornavn:</label>
@@ -91,7 +92,7 @@
         <input type="text" id="etternavn" placeholder="Skriv inn ditt etternavn" required> <br>
 
         <label for="telefonnummer">Tlf-nummer:</label>
-        <input type="tel" id="telefonnummer" placeholder="Skriv inn et gyldig telefonnummer" pattern="[0-9]{8}" required> <br>
+        <input type="tel" id="telefonnummer" placeholder="Skriv inn et gyldig nummer" pattern="[0-9]{8}" required> <br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" placeholder="Skriv inn din email adresse" required> <br>

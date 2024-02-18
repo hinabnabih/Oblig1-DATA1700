@@ -12,19 +12,18 @@ let kjøpBilett = document.getElementById("kjøpBilett");
 let slettBiletter = document.getElementById("slettBiletter");
 
 //validering av hele skjema
-function validerSkjema() {
-
-    if (film === "" || kvantitet === "" || fornavn === "" || etternavn === "" || telefonnummer === "" || email === "") {
+function validerSkjema(film, kvantitet, fornavn, etternavn, telefonnummer, email) {
+    if (!film || !kvantitet || !fornavn || !etternavn || !telefonnummer || !email) {
         alert("Vennligst fyll ut alle feltene før du sender skjemaet.");
-        return false; // skjemaet sendes ikke hvis det er tomme felt
+        return false; // Skjemaet sendes ikke hvis det er tomme felt
     }
 
-    return true; // skjemaet hvis alle felt er fylt ut
+    return true; // Skjemaet sendes hvis alle felt er fylt ut
 }
 function leggTilBiletter(event) { // for å legge til biletter
     event.preventDefault();
 
-    //henter verdiene
+    //henter verdiene fra html
     let film = document.getElementById("film").value;
     let kvantitet = document.getElementById("kvantitet").value;
     let fornavn = document.getElementById("fornavn").value;
@@ -54,6 +53,8 @@ function leggTilBiletter(event) { // for å legge til biletter
 
     //legger til de nye bilettene i arrayet
     bilettArray.push(billett);
+    alert("Bestillingen er registrert, takk for kjøpet :) " +
+        "du finner oversikt over dine biletter nederst på siden ");
 
     visBiletter(); //biletter vises
 
