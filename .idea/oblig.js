@@ -65,7 +65,7 @@ function visBiletter() {
     let ut = "<ul>";
     for (let i = 0; i < bilettArray.length; i++) {
         let bilettListe= bilettArray[i];
-        ut += "<li> Film: "+ bilettListe.film + ", Antall biletter : " + bilettListe.kvantitet +  ", Email: " + bilettListe.email + "</li>";
+        ut += "<li> Film: "+ bilettListe.film + " | Antall biletter : " + bilettListe.kvantitet +  " | email: " + bilettListe.email + "</li>";
     }
     ut += "</ul>";
     bListe.innerHTML = ut;
